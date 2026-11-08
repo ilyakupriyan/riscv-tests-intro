@@ -1,0 +1,82 @@
+# llvm-snippy configuration for MIRISCV step-and-compare practice
+
+# ---------------------------------------------------------------------------------
+# Memory sections
+# Address 0x80000000 is reserved for _start from crt_snippy.S
+# Address 0x80100000 is reserved for tohost
+# ---------------------------------------------------------------------------------
+sections:
+  - name:   text
+    VMA:    0x80001000
+    LMA:    0x80001000
+    SIZE:   0x00080000
+    ACCESS: rx
+
+  - name:   stack
+    VMA:    0x80081000
+    LMA:    0x80081000
+    SIZE:   0x00006000
+    ACCESS: rw
+
+  - name:   data
+    VMA:    0x80091000
+    LMA:    0x80091000
+    SIZE:   0x00006000
+    ACCESS: rw
+
+# ---------------------------------------------------------------------------------
+# Generator options
+# ---------------------------------------------------------------------------------
+options:
+  mtriple: riscv32
+  march: rv32im
+  model-plugin: None
+
+  entry-point: SnippyFunction
+  last-instr: RET
+
+  honor-target-abi: true
+  init-regs-in-elf: true
+
+# ---------------------------------------------------------------------------------
+# Instructions distribution
+# ---------------------------------------------------------------------------------
+histogram:
+  # RV32I ALU
+  - [ADD,   7.0]
+  - [SUB,   7.0]
+  - [XOR,   4.0]
+  - [OR,    4.0]
+  - [AND,   4.0]
+  - [SLL,   2.0]
+  - [SRL,   2.0]
+  - [SRA,   2.0]
+  - [SLT,   2.0]
+  - [SLTU,  2.0]
+
+  # RV32I immediate
+  - [ADDI,  8.0]
+  - [XORI,  3.0]
+  - [ORI,   3.0]
+  - [ANDI,  3.0]
+  - [SLLI,  2.0]
+  - [SRLI,  2.0]
+  - [SRAI,  2.0]
+  - [SLTI,  2.0]
+  - [SLTIU, 2.0]
+
+  # RV32I constants
+  - [LUI,   2.0]
+  - [AUIPC, 2.0]
+
+  # RV32I memory
+  - [LW,    6.0]
+  - [SW,    6.0]
+
+  # RV32I branches
+  - [BEQ,   1.0]
+  - [BNE,   1.0]
+  - [BLT,   1.0]
+  - [BGE,   1.0]
+  - [BLTU,  1.0]
+  - [BGEU,  1.0]

@@ -48,6 +48,33 @@ sudo python3 setup.py install
 
 Да, `setup.py` действительно нужно выполнить дважды.
 
+## Генератор случайных инструкций RISC-V llvm-snippy `3.0`
+
+Используется собранная версия генератора из [раздела релизов](https://github.com/syntacore/snippy/releases/tag/snippy-3.0) официального репозитория. **Обратите внимание**, что сборка `ubuntu` требует `glibc` версии не ниже 2.38 и не запускается на Ubuntu 22.04, поэтому используется сборка `rocky`.
+
+Скачиваем и распаковываем:
+
+```bash
+wget https://github.com/syntacore/snippy/releases/download/snippy-3.0/snippy-x86_64-linux-rocky.tar.xz
+sudo mkdir -p $INSTALL_DIR/snippy
+sudo tar -xJf snippy-x86_64-linux-rocky.tar.xz -C $INSTALL_DIR/snippy
+rm snippy-x86_64-linux-rocky.tar.xz
+```
+
+Добавляем в PATH для всех пользователей:
+
+```bash
+echo "PATH=$INSTALL_DIR/snippy/bin"':$PATH' | sudo tee -a /etc/profile
+source /etc/profile
+```
+
+**или** текущего:
+
+```bash
+echo "PATH=$INSTALL_DIR/snippy/bin"':$PATH' >> ~/.profile
+source ~/.profile
+```
+
 ## ПО riscv-gnu-toolchain RV32IM `6d7b5b7`
 
 Переходим в директорию и устанавливаем зависимости:

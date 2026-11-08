@@ -50,6 +50,26 @@ cd ../..
 
 
 #-----------------------------------------------------------------
+# llvm-snippy
+#-----------------------------------------------------------------
+
+# Download prebuilt release (rocky build works with glibc 2.35)
+
+wget https://github.com/syntacore/snippy/releases/download/snippy-3.0/snippy-x86_64-linux-rocky.tar.xz
+
+# Install
+
+sudo mkdir -p $INSTALL_DIR/snippy
+sudo tar -xJf snippy-x86_64-linux-rocky.tar.xz -C $INSTALL_DIR/snippy
+rm snippy-x86_64-linux-rocky.tar.xz
+
+# Add to PATH
+
+echo "PATH=$INSTALL_DIR/snippy/bin"':$PATH' | sudo tee -a /etc/profile
+source /etc/profile
+
+
+#-----------------------------------------------------------------
 # riscv-gnu-toolchain
 #-----------------------------------------------------------------
 

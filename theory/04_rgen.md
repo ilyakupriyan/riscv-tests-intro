@@ -56,7 +56,7 @@ RVFI сыграл важнейшую роль в истории верифика
 
 **Для каждого тестового сценария происходит сравнение лог-файлов процессора и эталонной модели.** На основании совпадения или несовпадения формируется результат тестирования.
 
-**Для создания тестовых программ в данном подходе используются генераторы случайных инструкций.** Благодаря сообществу RISC-V в настоящее время в открытом доступе существует достаточное количество генераторов с открытым исходным кодом и подробной документацией по применению, например [RISCV-DV](https://github.com/chipsalliance/riscv-dv), [MicroTESK](https://forge.ispras.ru/projects/microtesk-riscv), [AAPG](https://gitlab.com/shaktiproject/tools/aapg), [FORCE-RISCV](https://github.com/openhwgroup/force-riscv).
+**Для создания тестовых программ в данном подходе используются генераторы случайных инструкций.** Благодаря сообществу RISC-V в настоящее время в открытом доступе существует достаточное количество генераторов с открытым исходным кодом и подробной документацией по применению, например [RISCV-DV](https://github.com/chipsalliance/riscv-dv), [MicroTESK](https://forge.ispras.ru/projects/microtesk-riscv), [AAPG](https://gitlab.com/shaktiproject/tools/aapg), [FORCE-RISCV](https://github.com/openhwgroup/force-riscv), [llvm-snippy](https://github.com/syntacore/snippy).
 
 ![](../doc/pic/iss_1.svg)
 
