@@ -1,0 +1,102 @@
+<svg width="1400" height="760" viewBox="0 0 1400 760" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto-start-reverse">
+      <path d="M0 0L10 5L0 10Z" fill="#172C51"/>
+    </marker>
+    <style>
+      .t  { font-family: Consolas, "JetBrains Mono", monospace; font-size: 22px; fill: #000000; }
+      .tb { font-family: Consolas, "JetBrains Mono", monospace; font-size: 22px; fill: #0D0CFC; }
+      .ts { font-family: Consolas, "JetBrains Mono", monospace; font-size: 17px; fill: #404040; }
+      .th { font-family: Consolas, "JetBrains Mono", monospace; font-size: 24px; fill: #172C51; font-weight: 700; }
+      .box  { stroke: #172C51; stroke-width: 2.5; }
+      .line { stroke: #172C51; stroke-width: 2.5; fill: none; }
+      .dash { stroke: #172C51; stroke-width: 2.5; fill: none; stroke-dasharray: 9 7; }
+    </style>
+  </defs>
+
+  <rect x="0" y="0" width="1400" height="760" fill="#FFFFFF"/>
+
+  <!-- Frames -->
+  <rect x="20" y="20" width="1360" height="470" rx="28" class="box" fill="#FFF2CC"/>
+  <text x="44" y="58" class="th">Получение тестовой программы (директория build)</text>
+  <rect x="20" y="520" width="1360" height="220" rx="28" class="box" fill="#E2F0D9"/>
+  <text x="44" y="558" class="th">Верификационное окружение (из занятия 03)</text>
+
+  <!-- Inputs -->
+  <rect x="40" y="100" width="240" height="70" rx="12" class="box" fill="#DEEBF7"/>
+  <text x="160" y="133" text-anchor="middle" class="tb">snippy.yaml</text>
+  <text x="160" y="158" text-anchor="middle" class="ts">конфигурация</text>
+
+  <rect x="40" y="245" width="240" height="70" rx="12" class="box" fill="#DEEBF7"/>
+  <text x="160" y="278" text-anchor="middle" class="tb">snippy_miriscv.ld</text>
+  <text x="160" y="303" text-anchor="middle" class="ts">скрипт линковки</text>
+
+  <rect x="40" y="385" width="240" height="70" rx="12" class="box" fill="#DEEBF7"/>
+  <text x="160" y="418" text-anchor="middle" class="tb">crt_snippy.S</text>
+  <text x="160" y="443" text-anchor="middle" class="ts">обертка _start</text>
+
+  <!-- llvm-snippy -->
+  <rect x="330" y="95" width="220" height="80" rx="20" class="box" fill="#C5E0B4"/>
+  <text x="440" y="142" text-anchor="middle" class="t">llvm-snippy</text>
+  <line x1="280" y1="135" x2="328" y2="135" class="line" marker-end="url(#arr)"/>
+
+  <!-- Snippy outputs -->
+  <rect x="600" y="80" width="240" height="60" rx="12" class="box" fill="#FBE5D6"/>
+  <text x="720" y="108" text-anchor="middle" class="tb">snippy.elf</text>
+  <text x="720" y="130" text-anchor="middle" class="ts">SnippyFunction</text>
+  <rect x="600" y="160" width="240" height="60" rx="12" class="box" fill="#FBE5D6"/>
+  <text x="720" y="188" text-anchor="middle" class="tb">snippy.elf.ld</text>
+  <text x="720" y="210" text-anchor="middle" class="ts">секции Snippy</text>
+  <path d="M550 125 L575 125 L575 110 L598 110" class="line" marker-end="url(#arr)"/>
+  <path d="M550 145 L575 145 L575 190 L598 190" class="line" marker-end="url(#arr)"/>
+
+  <!-- INCLUDE -->
+  <path d="M650 220 L650 255 L282 255" class="dash" marker-end="url(#arr)"/>
+  <text x="440" y="246" text-anchor="middle" class="ts">INCLUDE snippy.elf.ld</text>
+
+  <!-- gcc -->
+  <rect x="600" y="300" width="240" height="90" rx="20" class="box" fill="#C5E0B4"/>
+  <text x="720" y="338" text-anchor="middle" class="t">riscv32-unknown-</text>
+  <text x="720" y="366" text-anchor="middle" class="t">elf-gcc</text>
+  <path d="M840 110 L870 110 L870 270 L720 270 L720 298" class="line" marker-end="url(#arr)"/>
+  <path d="M280 295 L440 295 L440 330 L598 330" class="line" marker-end="url(#arr)"/>
+  <path d="M280 420 L520 420 L520 365 L598 365" class="line" marker-end="url(#arr)"/>
+
+  <!-- program.elf -->
+  <rect x="880" y="310" width="200" height="70" rx="12" class="box" fill="#F4B183"/>
+  <text x="980" y="343" text-anchor="middle" class="tb">program.elf</text>
+  <text x="980" y="368" text-anchor="middle" class="ts">итоговый образ</text>
+  <line x1="840" y1="345" x2="878" y2="345" class="line" marker-end="url(#arr)"/>
+
+  <!-- objcopy -->
+  <rect x="1130" y="310" width="220" height="70" rx="20" class="box" fill="#C5E0B4"/>
+  <text x="1240" y="352" text-anchor="middle" class="t">objcopy</text>
+  <line x1="1080" y1="345" x2="1128" y2="345" class="line" marker-end="url(#arr)"/>
+
+  <!-- program.bin -->
+  <rect x="1130" y="405" width="220" height="65" rx="12" class="box" fill="#F4B183"/>
+  <text x="1240" y="435" text-anchor="middle" class="tb">program.bin</text>
+  <text x="1240" y="459" text-anchor="middle" class="ts">raw binary</text>
+  <line x1="1240" y1="380" x2="1240" y2="403" class="line" marker-end="url(#arr)"/>
+
+  <!-- Environment -->
+  <rect x="60" y="590" width="500" height="120" rx="20" class="box" fill="#D9D9D9"/>
+  <text x="310" y="632" text-anchor="middle" class="tb">miriscv_test</text>
+  <text x="310" y="664" text-anchor="middle" class="ts">+signature_addr=80100000</text>
+  <text x="310" y="690" text-anchor="middle" class="ts">ожидание записи 1 в tohost</text>
+
+  <rect x="640" y="590" width="420" height="120" rx="20" class="box" fill="#9DC3E6"/>
+  <text x="850" y="632" text-anchor="middle" class="tb">miriscv_scoreboard</text>
+  <text x="850" y="664" text-anchor="middle" class="ts">Hammer + Spike</text>
+  <text x="850" y="690" text-anchor="middle" class="ts">hammer_init(elf)</text>
+
+  <rect x="1090" y="590" width="270" height="120" rx="20" class="box" fill="#FFD5D5"/>
+  <text x="1225" y="632" text-anchor="middle" class="tb">mem_model</text>
+  <text x="1225" y="664" text-anchor="middle" class="ts">загрузка с</text>
+  <text x="1225" y="690" text-anchor="middle" class="ts">BOOT_ADDR</text>
+
+  <path d="M980 380 L980 540 L850 540 L850 588" class="line" marker-end="url(#arr)"/>
+  <text x="864" y="578" class="ts">+elf</text>
+  <line x1="1240" y1="470" x2="1240" y2="588" class="line" marker-end="url(#arr)"/>
+  <text x="1254" y="578" class="ts">+bin</text>
+</svg>
